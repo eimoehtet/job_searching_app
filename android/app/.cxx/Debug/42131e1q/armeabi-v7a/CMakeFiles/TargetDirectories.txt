@@ -1,0 +1,2 @@
+C:/flutter_lessons/job_searching_project/android/app/.cxx/Debug/42131e1q/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/flutter_lessons/job_searching_project/android/app/.cxx/Debug/42131e1q/armeabi-v7a/CMakeFiles/rebuild_cache.dir
