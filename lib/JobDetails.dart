@@ -3,12 +3,12 @@ import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:job_searching_project/login.dart';
 
 import 'applied_job_details.dart';
 class JobDetailScreen extends StatefulWidget {
   final Map<String, dynamic> job;
-  JobDetailScreen({required this.job});
+  final String jobId;
+  JobDetailScreen({required this.job, required this.jobId});
 
   @override
   _JobDetailScreenState createState() => _JobDetailScreenState();
@@ -60,7 +60,7 @@ class _JobDetailScreenState extends State<JobDetailScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AppliedJobScreen(jobApplication: applicationData),
+              builder: (context) => AppliedJobScreen(),
             ),
           );
         });
@@ -148,7 +148,7 @@ class _JobDetailScreenState extends State<JobDetailScreen> {
                   context: context,
                   message: messageController.text,
                   file: selectedFile!,
-                  jobId: widget.job['id'] ?? 'unknown_job_id',
+                  jobId: widget.jobId ?? 'unknown_job_id',
                 );
 
                 Navigator.pop(context);

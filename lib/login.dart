@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:job_searching_project/Home.dart';
 import 'package:job_searching_project/Register.dart';
@@ -15,7 +16,14 @@ class _LoginPageState extends State<LoginPage> {
   void login() async {
     final user = await AuthService().login(emailController.text, passwordController.text);
     if (user != null) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage(username: "username", password: "password")));
+      print("User${user}");
+      final userDoc = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(user.uid)
+          .get();
+
+      final fullName = userDoc['displayName'];
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage(username:fullName.toString(), email: user.email.toString())));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login failed")));
     }

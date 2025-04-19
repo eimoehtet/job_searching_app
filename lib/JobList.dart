@@ -38,7 +38,7 @@ class JobListScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => JobDetailScreen(job: job),
+                        builder: (context) => JobDetailScreen(job: job, jobId: doc.id,),
                       ),
                     );
                   },
