@@ -50,7 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   accountEmail: Text(widget.email),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage("img/princess.jpg"),
-                  )
+                  ),
+                 decoration: BoxDecoration(
+                   color: Colors.blue
+                 ),
               ),
               ListTile(leading: Icon(Icons.logout),title: Text("Logout"),onTap: () => _logout(context),),
 
